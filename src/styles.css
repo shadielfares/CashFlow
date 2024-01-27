@@ -2,8 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
-
-
 body {
   margin: 0;
 }
@@ -16,7 +14,6 @@ canvas {
   display: block;
 }
 
-
 tryingnew {
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -28,7 +25,7 @@ tryingnew {
 }
 .cash {
     color: black;
-    margin-top: 25px;
+    margin-top: 30px;
     z-index: 9999; /* Set a high z-index value to ensure it appears over everything */
     position: fixed; /* Position the element relative to the viewport */
     top: 0; /* Position it at the top */
@@ -62,65 +59,6 @@ prompttext {
   line-height: normal;
 }
 
-.btn-3,
-.btn-3 *,
-.btn-3 :after,
-.btn-3 :before,
-.btn-3:after,
-.btn-3:before {
-  border: 0 solid;
-  border-color: #617b61;
-  box-sizing: border-box;
-}
-.btn-3 {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
-  background-color: #86A789;
-  background-image: none;
-  color: #535f53;
-  cursor: pointer;
-  font-family: "font-family: 'EB Garamond', serif;" ;
-  font-size: 100%;
-  font-weight: 900;
-  line-height: 1.5;
-  justify-content: center;
-  margin-right: 20px;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-  padding: 0;
-}
-.btn-3:disabled {
-  cursor: default;
-}
-.btn-3:-moz-focusring {
-  outline: auto;
-}
-.btn-3 svg {
-  display: block;
-}
-.btn-3 [hidden] {
-  display: none;
-}
-.btn-3 {
-  border-radius: 99rem;
-  border-width: 2px;
-  overflow: hidden;
-  position: relative;
-}
-.btn-3 span {
-  mix-blend-mode: difference;
-}
-.btn-3:before {
-  background: #383b38;
-  padding-top: 5.00px;
-  content: "Ran";
-  inset: 0;
-  position: absolute;
-  transform: translateX(var(--progress, -100%));
-  transition: transform 0.6s ease;
-}
-.btn-3:hover:before {
-  --progress: 0;
-}
 
 
 .btn-2,
@@ -138,19 +76,17 @@ prompttext {
   -webkit-appearance: button;
   background-color: #86A789;
   background-image: none;
-  color: #2a3740;
+  color: #263826;
   cursor: pointer;
 font-family: 'EB Garamond';
-font-size: 100%;
+font-size: 18px;
   font-weight: 900;
   line-height: 1.5;
   margin-right: 5px;
   justify-content: center;
   -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
 }
-.btn-2:disabled {
-  cursor: default;
-}
+
 .btn-2:-moz-focusring {
   outline: auto;
 }
@@ -174,7 +110,7 @@ font-size: 100%;
   aspect-ratio: 1;
   background: #263826;
   border-radius: 50%;
-  content: "Rand";
+  content: "";
   left: -100%;
   position: absolute;
   top: 50%;
@@ -185,4 +121,10 @@ font-size: 100%;
 }
 .btn-2:hover:before {
   transform: translateY(-50%) scale(2);
+}
+
+#moving-yes {
+  transition: transform 2s ease-in-out;
+  /* Initial position for the moving element */
+  transform: translateX(0);
 }

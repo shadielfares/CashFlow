@@ -116,9 +116,11 @@ font-size: 100%;
 
 }
 
-.btn-2:active::after {
+.btn-2:active {
   animation-delay: 0.2s;
   animation: button-center 0.6s ease forwards;
+  background-color: #86A789;
+  
 }
 
 @keyframes button-center {
