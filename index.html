@@ -56,27 +56,27 @@
       >
     </div>
 
-      <div style="display: flex; justify-content: center; align-items: flex-end; position: absolute; bottom: 1px; width: 100%; flex-wrap: wrap;">
+    <div style="display: flex; justify-content: center; align-items: flex-end; position: absolute; bottom: 1px; width: 100%; flex-wrap: wrap;">
 
     <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
       <div  style="width: 610px; background: #3c4c3cd9; border-radius: 25px; padding: 23px; text-align: left; font-size: 24px; font-family: 'EB Garamond', sans-serif; font-weight: 400; color: #191f19;">
         &emsp; Welcome, would you like a unique business idea?
       </div >
-      
+ 
       <button class="btn-2" type="submit" id="moving-yes" style="display: inline-block; width: 99px; height: 46px; border-radius: 42px; position: absolute; margin-left: 517px; ">
           <b>Yes.</b>
       </button>
     </div>
 
-    
       <div style="display: flex; justify-content: center; align-items: flex-end; position: absolute; bottom: 10px; width: 100%; ">
         <div style="text-align: center; width: 260px; height: 48px; background: linear-gradient(155deg, #1b281c 40%, #66765d 100%); border-radius: 50px; z-index: 9998;">
         <div style="padding-top: 15px;font-size: 17px; font-family: EB Garamond; font-weight: 400; word-wrap: break-word; color: rgb(154, 175, 142); text-align: center; z-index: 9998;">
-          <a href="https://uofthacks.com/" style="color: inherit; text-decoration: none;"> Team Flow  UofT Hacks  </a>  © 2024 
+          <a href="https://uofthacks.com/" style="color: inherit; text-decoration: none;"> Team Flow UofT Hacks  </a>  © 2024 
         </div>
         </div>
       </div>
     </div>
+
      
     <!--  Actual Animation-->
     <canvas id="canvas3d"></canvas>
@@ -94,6 +94,8 @@
     <script>
       document.getElementById('moving-yes').addEventListener('click', function() {
         var movingElement = document.getElementById('moving-yes');
+        movingElement.style.visibility = 'visible';
+        document.getElementById('moving-yes').style.pointerEvents = 'none';
         // Move the element permanently to the left by 228px
         movingElement.style.transform = 'translateX(-256px)';
         movingElement.style.background = '#263826';
