@@ -63,6 +63,7 @@
         &emsp; Welcome, would you like a unique business idea?
       </div >
  
+      <input type="text" id="randomSentence" readonly>
       <button class="btn-2" type="submit" id="moving-yes" style="display: inline-block; width: 99px; height: 46px; border-radius: 42px; position: absolute; margin-left: 517px; ">
           <b>Yes.</b>
       </button>
@@ -114,12 +115,14 @@
           movingElement.style.border = '6px solid #181f18';
           movingElement.style.transition = 'all 2.5s ease-in-out';
         }, 5450);
+        //randomizer backup
         fetch('/random-sentence')
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('randomSentence').textContent = data;
+                    document.getElementById('randomSentence').value = data;
                 })
                 .catch(error => console.error('Error:', error));
+        //Assistant API
         fetch('/api/openapi', {
           method: 'POST',
           headers: {
