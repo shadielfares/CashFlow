@@ -48,7 +48,7 @@ async function generateUniqueIdea(businessIdeas) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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'
+                'Authorization': 'Bearer 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'
             },
             body: JSON.stringify({
                 prompt: selectedIdea,
