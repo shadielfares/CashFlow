@@ -114,6 +114,12 @@
           movingElement.style.border = '6px solid #181f18';
           movingElement.style.transition = 'all 2.5s ease-in-out';
         }, 5450);
+        fetch('/random-sentence')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('randomSentence').textContent = data;
+                })
+                .catch(error => console.error('Error:', error));
         fetch('/api/openapi', {
           method: 'POST',
           headers: {
