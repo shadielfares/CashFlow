@@ -114,6 +114,21 @@
           movingElement.style.border = '6px solid #181f18';
           movingElement.style.transition = 'all 2.5s ease-in-out';
         }, 5450);
+        fetch('/api/openapi', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(function(response) {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        }).then(function(data) {
+          document.getElementById('responseField').value = data.answer;
+        }).catch(function(error) {
+          console.error('Error: ', error);
+        });
       });
     </script>
     <script type="module" src="./src/main.js"></script>
