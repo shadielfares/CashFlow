@@ -94,87 +94,81 @@
       document.getElementById('moving-yes').addEventListener('click', function() {
         var movingElement = document.getElementById('moving-yes');
         var buttonText = document.getElementById('button-text');
+        
+        // Start animation sequence
         movingElement.style.visibility = 'visible';
         movingElement.style.pointerEvents = 'none';
+        movingElement.style.transition = 'all 2.5s ease-in-out';
     
         // Move the element permanently to the left by 256px
         movingElement.style.transform = 'translateX(-256px)';
         movingElement.style.background = '#263826';
     
-        // Animation steps
+        // Step 1: Change width, height, border-radius, opacity
         setTimeout(function() {
           movingElement.style.width = '656px';
           movingElement.style.height = '77.2px';
           movingElement.style.borderRadius = '25px';
-          movingElement.style.opacity = '100';
-          movingElement.style.transition = 'all 2.5s ease-in-out';
+          movingElement.style.opacity = '1';
         }, 2250);
     
+        // Step 2: Expand height to 570px
         setTimeout(function() {
           movingElement.style.height = '570px';
-          movingElement.style.transition = 'all 2.5s ease-in-out';
         }, 4450);
     
+        // Step 3: Add border after 1 second
         setTimeout(function() {
           movingElement.style.border = '6px solid #181f18';
-          movingElement.style.transition = 'all 2.5s ease-in-out';
         }, 5450);
     
-        // Show the subscription message inside the moving element after all animations
-        // setTimeout(function() {
-        //   buttonText.innerHTML = "If this message shows, our GPT subscription probably ran out. =) I hope you enjoyed the animations though!";
-        //   buttonText.style.color = '#ff5959';
-        //   buttonText.style.fontSize = '18px';
-        //   buttonText.style.padding = '20px';
-        //   buttonText.style.textAlign = 'center';
-        // }, 7450); // Adjust timing to appear after all animations
-        // Function to get a random integer between min (inclusive) and max (inclusive)
+        // Randomize the file selection and update the button text
         function getRandomInt(min, max) {
           return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-
-        // Method 1: Randomize the selection of chunk_#.csv
+    
         function selectRandomChunk() {
           const chunkNumber = getRandomInt(1, 12); // Random number between 1 and 12
-          const chunkFile = `ideachunks/chunk_${chunkNumber}.csv`;
+          const chunkFile = `./ideachunks/chunk_${chunkNumber}.csv`;
           return chunkFile;
         }
-
-        // Method 2: Read the file, randomize the line, and update the button
-        async function selectRandomLine() {
-          const chunkFile = selectRandomChunk();
-
-          // Fetching the content of the CSV file
-          const response = await fetch(chunkFile);
-          const data = await response.text();
-        
-          // Splitting the file content into lines
-          const lines = data.split('\n');
-          const totalLines = lines.length;
-
-          // Randomly select a line
-          const randomLineNumber = getRandomInt(1, totalLines);
-          const selectedLine = lines[randomLineNumber - 1]; // -1 since array index starts at 0
-        
-          // Update the button text
-          const buttonText = document.getElementById('buttonText');
-          setTimeout(function(){
-          buttonText.innerHTML = selectedLine;
-          buttonText.style.color = '#ff5959';
-          buttonText.style.fontSize = '18px';
-          buttonText.style.padding = '20px';
-          buttonText.style.textAlign = 'center';
-          },7450);
-
-        }
-
-        // Call the selectRandomLine function when needed (e.g., button click)
-        document.getElementById('moving-yes').addEventListener('click', selectRandomLine);
-      });
-
-      
-    </script>
     
+        async function selectRandomLine() {
+          try {
+            const chunkFile = selectRandomChunk();
+    
+            // Fetch the CSV file
+            const response = await fetch(chunkFile);
+            if (!response.ok) throw new Error('File not found');
+            
+            const data = await response.text();
+    
+            // Split content into lines
+            const lines = data.split('\n');
+            const totalLines = lines.length;
+    
+            // Select a random line
+            const randomLineNumber = getRandomInt(1, totalLines);
+            const selectedLine = lines[randomLineNumber - 1];
+    
+            // Update button text after all animations
+            setTimeout(function() {
+              buttonText.innerHTML = selectedLine;
+              buttonText.style.color = '#ff5959';
+              buttonText.style.fontSize = '18px';
+              buttonText.style.padding = '20px';
+              buttonText.style.textAlign = 'center';
+            }, 7450); // After animations are complete
+          } catch (error) {
+            console.error(error);
+            buttonText.innerHTML = "Error fetching data";
+          }
+        }
+    
+        // Call the selectRandomLine function
+        selectRandomLine();
+      });
+    </script>
     
     <script type="module" src="./src/main.js"></script>
 
