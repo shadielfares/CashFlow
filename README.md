@@ -1,9 +1,6 @@
 # Cash Flow: Submitted to UofTHacks 2023 💡💰
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![HitCount](https://hits.dwyl.com/shadielfares/HackingUofT)
-
-![NPM Version](https://img.shields.io/npm/v/cash-flow.svg)
 ![GitHub Commits](https://img.shields.io/github/commit-activity/m/shadielfares/HackingUofT)
 ![GitHub Code Size](https://img.shields.io/github/languages/code-size/shadielfares/HackingUofT)
 
