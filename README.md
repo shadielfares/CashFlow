@@ -3,9 +3,8 @@
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![HitCount](https://hits.dwyl.com/yourusername/cash-flow.svg)
 
-![NPM Version](https://img.shields.io/npm/v/cash-flow.svg)
-![GitHub Commits](https://img.shields.io/github/commit-activity/m/yourusername/cash-flow)
-![GitHub Code Size](https://img.shields.io/github/languages/code-size/yourusername/cash-flow)
+![GitHub Commits](https://img.shields.io/github/commit-activity/m/shadielfares/cash-flow)
+![GitHub Code Size](https://img.shields.io/github/languages/code-size/shadielfares/cash-flow)
 
 ## 💡 The Spark Behind Cash Flow 🌟
 
